@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 
 import '../routes/app_route.gr.dart';
 
+final innerRouterKey = GlobalKey<AutoRouterState>();
+
 @RoutePage()
 class NavigationProfileScreen extends StatefulWidget {
   const NavigationProfileScreen({super.key});
@@ -15,6 +17,7 @@ class _ScreenCState extends State<NavigationProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
+      key: innerRouterKey,
       routes: const [
         UsersRoute(),
         PostsRoute(),

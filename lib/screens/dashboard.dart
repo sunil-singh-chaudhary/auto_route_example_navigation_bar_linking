@@ -106,25 +106,27 @@ class _ScreenCState extends State<DashBoard> {
     );
   }
 
-  Container _builderpageView() {
-    return Container(
-      color: Colors.white30,
-      height: 51.h,
-      child: PageView.builder(
-        onPageChanged: pageChanged,
-        controller: controller,
-        itemCount: pageData.length,
-        itemBuilder: (context, outerindex) {
-          return ListView.builder(
-            itemCount: pageData[outerindex].length,
-            itemBuilder: (context, innerindex) {
-              return ListTile(
-                leading: CircleAvatar(child: Text('$innerindex')),
-                title: Text('Text ${pageData[outerindex][innerindex]}'),
-              );
-            },
-          );
-        },
+  Expanded _builderpageView() {
+    return Expanded(
+      //use expanded here so it will work on bottomnavigationbar and overflow errro not shown
+      child: Container(
+        color: Colors.white30,
+        child: PageView.builder(
+          onPageChanged: pageChanged,
+          controller: controller,
+          itemCount: pageData.length,
+          itemBuilder: (context, outerindex) {
+            return ListView.builder(
+              itemCount: pageData[outerindex].length,
+              itemBuilder: (context, innerindex) {
+                return ListTile(
+                  leading: CircleAvatar(child: Text('$innerindex')),
+                  title: Text('Text ${pageData[outerindex][innerindex]}'),
+                );
+              },
+            );
+          },
+        ),
       ),
     );
   }
