@@ -1,16 +1,14 @@
 # auto_route_example
 
-A new Flutter project.
 
 ## Getting Started
+in this example i am using bottomnavigationbar to show a new screen insde the UserTab 
+i am not creating new screen ,
+Like we did in Android using Fragment
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Check Below Demo How it is Working
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+https://github.com/sunil-singh-chaudhary/auto_route_example_navigation_bar_linking/assets/10194731/b2fd5ba3-858c-42ea-a677-94ba84f68f0d
+
