@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:auto_route_example/routes/accountsetting.dart';
 import 'app_route.gr.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'Route')
@@ -21,7 +20,6 @@ class AppRouter extends $AppRouter {
             children: [
               //THis is important for showing a screen inside a tab so tab also visible like fragment in android
               //by creating a new class UserSettingScreen extends AutoRouter {} and wrap it with below code
-
               AutoRoute(
                   path: 'userpath',
                   page: UserSettingScreenRoute.page,
@@ -29,6 +27,7 @@ class AppRouter extends $AppRouter {
                     AutoRoute(page: UsersRoute.page, initial: true),
                     AutoRoute(page: DashBoardRoute.page, path: 'dashboard'),
                   ]),
+
               AutoRoute(path: 'posts', page: PostsRoute.page),
               AutoRoute(path: 'settings', page: SettingsRoute.page),
             ]),
@@ -36,20 +35,3 @@ class AppRouter extends $AppRouter {
         /// routes go here
       ];
 }
-
-    // AutoRoute(
-    //         path: 'account',
-    //         page: AccountSettingsRoute.page,
-    //         children: [
-    //        // this will render on /account because it has an empty path
-    //          AutoRoute(
-    //             path: '',
-    //             page: AccountRoute.page,
-    //           ),
-    //           AutoRoute(
-    //             path: 'settings',
-    //             page: SettingsRoute.page,
-    //           ),
-    //         ],
-    //       ),
-

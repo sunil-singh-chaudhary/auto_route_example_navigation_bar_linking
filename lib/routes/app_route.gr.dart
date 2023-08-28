@@ -16,6 +16,7 @@ import 'package:auto_route_example/screens/posts.dart' as _i3;
 import 'package:auto_route_example/screens/screenB.dart' as _i4;
 import 'package:auto_route_example/screens/settings.dart' as _i5;
 import 'package:auto_route_example/screens/users.dart' as _i7;
+import 'package:flutter/material.dart' as _i9;
 
 abstract class $AppRouter extends _i8.RootStackRouter {
   $AppRouter({super.navigatorKey});
@@ -29,9 +30,11 @@ abstract class $AppRouter extends _i8.RootStackRouter {
       );
     },
     NavigationProfileScreenRoute.name: (routeData) {
+      final args = routeData.argsAs<NavigationProfileScreenRouteArgs>(
+          orElse: () => const NavigationProfileScreenRouteArgs());
       return _i8.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i2.NavigationProfileScreen(),
+        child: _i2.NavigationProfileScreen(key: args.key),
       );
     },
     PostsRoute.name: (routeData) {
@@ -83,16 +86,32 @@ class DashBoardRoute extends _i8.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i2.NavigationProfileScreen]
-class NavigationProfileScreenRoute extends _i8.PageRouteInfo<void> {
-  const NavigationProfileScreenRoute({List<_i8.PageRouteInfo>? children})
-      : super(
+class NavigationProfileScreenRoute
+    extends _i8.PageRouteInfo<NavigationProfileScreenRouteArgs> {
+  NavigationProfileScreenRoute({
+    _i9.Key? key,
+    List<_i8.PageRouteInfo>? children,
+  }) : super(
           NavigationProfileScreenRoute.name,
+          args: NavigationProfileScreenRouteArgs(key: key),
           initialChildren: children,
         );
 
   static const String name = 'NavigationProfileScreenRoute';
 
-  static const _i8.PageInfo<void> page = _i8.PageInfo<void>(name);
+  static const _i8.PageInfo<NavigationProfileScreenRouteArgs> page =
+      _i8.PageInfo<NavigationProfileScreenRouteArgs>(name);
+}
+
+class NavigationProfileScreenRouteArgs {
+  const NavigationProfileScreenRouteArgs({this.key});
+
+  final _i9.Key? key;
+
+  @override
+  String toString() {
+    return 'NavigationProfileScreenRouteArgs{key: $key}';
+  }
 }
 
 /// generated route for
