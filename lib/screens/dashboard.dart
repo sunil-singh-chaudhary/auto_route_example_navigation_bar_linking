@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:auto_route_example/screens/navigation_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
@@ -84,6 +85,8 @@ class _ScreenCState extends State<DashBoard> {
                     backgroundColor:
                         currentindex == 0 ? Colors.green : Colors.pink),
                 onPressed: () {
+                  analytics.logEvent(name: 'button_clicked');
+
                   gotonextpage(0);
                 },
                 child: const Text(

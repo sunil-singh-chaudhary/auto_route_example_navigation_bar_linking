@@ -1,8 +1,20 @@
 import 'package:auto_route_example/routes/app_route.dart';
+import 'package:firebase_analytics/observer.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+import 'screens/navigation_profile.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  analytics.logEvent(
+    name: 'test_event',
+    parameters: {'param_key': 'param_value'},
+  );
   runApp(MyApp());
 }
 
