@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:auto_route_example/routes/app_route.gr.dart';
 import 'package:auto_route_example/screens/navigation_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
@@ -125,6 +126,9 @@ class _ScreenCState extends State<DashBoard> {
                 return ListTile(
                   leading: CircleAvatar(child: Text('$innerindex')),
                   title: Text('Text ${pageData[outerindex][innerindex]}'),
+                  onTap: () {
+                    AutoRouter.of(context).push(const DashbordDetailsRoute());
+                  },
                 );
               },
             );

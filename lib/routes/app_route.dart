@@ -22,16 +22,28 @@ class AppRouter extends $AppRouter {
               //by creating a new class UserSettingScreen extends AutoRouter {} and wrap it with below code
               AutoRoute(
                   path: 'userpath',
-                  page: UserSettingScreenRoute.page,
+                  page: UserTabScreenRoute.page,
+                  //IMPORTANT-> create a class for fragment type work  fro one tab one UserSettingScreen fro all
+                  // children because it is inside user screen
                   children: [
                     AutoRoute(page: UsersRoute.page, initial: true),
                     AutoRoute(page: DashBoardRoute.page, path: 'dashboard'),
+                    AutoRoute(
+                        page: DashbordDetailsRoute.page,
+                        path: 'dashdetais',
+                        children: [
+                          AutoRoute(
+                            page: LoreumDetailsPageRoute.page,
+                            initial: true,
+                          )
+                        ]),
                   ]),
 
-              AutoRoute(path: 'posts', page: PostsRoute.page),
-              AutoRoute(path: 'settings', page: SettingsRoute.page),
+              AutoRoute(path: 'posts', page: PostsRoute.page), //post tab
+              AutoRoute(
+                  path: 'settings', page: SettingsRoute.page), //setting tab
             ]),
 
-        /// routes go here
+        /// ohter routes go here
       ];
 }

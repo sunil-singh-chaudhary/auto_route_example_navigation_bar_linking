@@ -56,7 +56,6 @@ class _ScreenCState extends State<NavigationProfileScreen> {
 //TODO : important when [clicking] on same tab again then it will
 //TODO : remove all inside page of it and come to on first page
   void navigateToTabAndClearStack(int tabIndex) {
-    widget._router.popUntilRoot(); // Clear the navigation stack
     switch (tabIndex) {
       case 0: // Users tab
         analytics.logEvent(
@@ -65,9 +64,7 @@ class _ScreenCState extends State<NavigationProfileScreen> {
             'usertab': 'clicked',
           },
         );
-        widget._router
-            .push(const UsersRoute()); // Navigate to the initial page of Users
-
+        _clearStackNnavigattoUserPage(); //double click on same tab
         break;
       case 1: // Posts tab
         analytics.logEvent(
@@ -92,6 +89,20 @@ class _ScreenCState extends State<NavigationProfileScreen> {
 
         break;
     }
+  }
+
+  void _clearStackNnavigattoUserPage() {
+    AutoRouter.of(context).removeUntil((route) {
+      // Your condition to determine when to stop removing routes.
+      // For example, you can check if the route is the UserPage or a specific route.
+      debugPrint('route.name== ${route.name}');
+      return route.name == '/NavigationProfileScreenRoute';
+    });
+
+    Future.delayed(const Duration(milliseconds: 100), () {
+      //clear all stack and navigate to user page
+      widget._router.push(const UsersRoute());
+    });
   }
 
   void trackNavigation(String screenName, String screenClassOverride) {
